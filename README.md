@@ -52,9 +52,10 @@ release, this gem would execute the following:
 
 ### Other tasks
 * deploy:set_permissions:chmod
+* deploy:set_permissions:chmod_non_r
 * deploy:set_permissions:chgrp
 * deploy:set_permissions:chown
-* 
+*
 ### Configuration
 
 The gem makes the following configuration variables available (shown with defaults)
