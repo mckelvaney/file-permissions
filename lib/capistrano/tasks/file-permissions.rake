@@ -47,6 +47,14 @@ namespace :deploy do
       end
     end
 
+    desc "Non-recursively set mode (from \"file_permissions_chmod_mode\") on configured paths with chmod"
+    task :chmod_non_r => [:check] do
+      next unless any? :file_permissions_paths
+      on roles fetch(:file_permissions_roles) do |host|
+        execute :chmod, fetch(:file_permissions_chmod_mode), *absolute_writable_paths
+      end
+    end
+
     desc "Recursively set mode (from \"file_permissions_chmod_mode\") on configured paths with chmod"
     task :chmod => [:check] do
       next unless any? :file_permissions_paths
